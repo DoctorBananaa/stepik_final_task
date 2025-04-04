@@ -16,3 +16,8 @@ class ProductPage(BasePage):
 
     def take_product_price_in_basket(self):
         return self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_BASKET).text
+
+    def go_to_basket(self):
+        selector_type, selector_str = ProductPageLocators.BASKET_LINK
+        selector_str = selector_str.format(self.get_current_language())
+        self.browser.find_element(selector_type, selector_str).click()

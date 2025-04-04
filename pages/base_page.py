@@ -2,6 +2,7 @@ from selenium.common.exceptions import NoSuchElementException, NoAlertPresentExc
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
+from selenium.webdriver.support.ui import Select
 
 class BasePage:
     def __init__(self, browser, url, timeout=10):
@@ -55,3 +56,6 @@ class BasePage:
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK)
+
+    def get_current_language(self):
+        return Select(self.browser.find_element(*BasePageLocators.LANGUAGE_SELECT)).first_selected_option.get_attribute("value")
