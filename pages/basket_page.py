@@ -26,6 +26,6 @@ class BasketPage(BasePage):
         "zh-cn": "Your basket is empty.",
     }
     def is_empty(self):
-        return self.is_not_element_present(*BasketPageLocators.PRODUCT_LIST) and \
+        assert self.is_not_element_present(*BasketPageLocators.PRODUCT_LIST) and \
         self.BASKET_LANGUAGES[self.get_current_language()] in \
-        self.browser.find_element(*BasketPageLocators.BASKET_EMPTY).text
+        self.browser.find_element(*BasketPageLocators.BASKET_EMPTY).text, 'Корзина не пустая'

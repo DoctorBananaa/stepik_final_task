@@ -40,14 +40,14 @@ class BasePage:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return True
-        return False
+        assert False, 'Элемент появился'
 
     def is_disappeared(self, how, what, timeout=4): #ждет, пока элем не пропадет
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException). \
                 until_not(EC.presence_of_element_located((how, what)))
         except TimeoutException:
-            return False
+            assert False, 'Элемент не пропал'
         return True
 
     def go_to_login_page(self):

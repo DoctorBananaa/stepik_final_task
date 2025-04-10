@@ -21,3 +21,11 @@ class ProductPage(BasePage):
         selector_type, selector_str = ProductPageLocators.BASKET_LINK
         selector_str = selector_str.format(self.get_current_language())
         self.browser.find_element(selector_type, selector_str).click()
+
+    def product_dont_add_to_backet(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_PRICE_BASKET), \
+            'Сообщения про новую стоимость корзины появилось'
+
+    def is_product_add_correct(self):
+        assert self.take_product_name() == self.take_product_name_in_basket(), 'Имя не совпадает'
+        assert self.take_product_price() == self.take_product_price_in_basket(), 'Стоимость не совпадает'
