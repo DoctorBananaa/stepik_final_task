@@ -8,7 +8,7 @@ class BasketPage(BasePage):
         "cs": "Váš košík je prázdný.",
         "da": "Din indkøbskurv er tom.",
         "de": "Ihr Warenkorb ist leer.",
-        "en": "Your basket is empty.",
+        "en-gb": "Your basket is empty.",
         "el": "Το καλάθι σας είναι άδειο.",
         "es": "Tu carrito esta vacío.",
         "fi": "Korisi on tyhjä",

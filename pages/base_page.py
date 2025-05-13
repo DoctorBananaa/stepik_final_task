@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
 from selenium.webdriver.support.ui import Select
+import math
 
 class BasePage:
     def __init__(self, browser, url, timeout=10):
@@ -21,7 +22,6 @@ class BasePage:
         return True
 
     def solve_quiz_and_get_code(self):
-        import math
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
         answer = str(math.log(abs((12 * math.sin(float(x))))))
